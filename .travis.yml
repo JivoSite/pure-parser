@@ -1,0 +1,14 @@
+git:
+  depth: 1
+
+branches:
+  only: master
+
+os: linux
+addons:
+  apt:
+    sources: ubuntu-toolchain-r-test
+    packages: g++-7
+
+language: cpp
+script: make verify
