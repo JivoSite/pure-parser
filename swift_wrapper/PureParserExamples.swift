@@ -126,19 +126,18 @@ fileprivate func execute_Complex() -> Meta {
 
 fileprivate func execute_Coupons() -> Meta {
     let parser = PureParser()
-    let formula = "You have $[:none: no coupons ## :one: one coupon ## $number coupons] $[:expiring: expiring on $date]"
+    let formula = "$[$name has ## You have] $[$number coupon(s) ## no coupons] expiring on $date"
     
-    parser.activate(alias: "one", true)
-    parser.activate(alias: "expiring", true)
+    parser.assign(variable: "number", value: "7")
     parser.assign(variable: "date", value: "11/11/19")
     let output = parser.execute(formula, collapseSpaces: true, resetOnFinish: true)
 
     return Meta(
         formula: formula,
-        variables: ["date": "11/11/19"],
-        aliases: ["one", "expiring"],
+        variables: ["number": "7", "date": "11/11/19"],
+        aliases: [],
         output: output,
-        reference: "You have one coupon expiring on 11/11/19"
+        reference: "You have 7 coupon(s) expiring on 11/11/19"
     )
 }
 

@@ -218,17 +218,15 @@ static void test_Coupons(example_meta_t *meta) {
     pure_parser_t parser;
     pure_parser_init(&parser, &config);
     
-    const char *formula = "You have $[:none: no coupons ## :one: one coupon ## $number coupons] $[:expiring: expiring on $date]";
-    pure_parser_enable_alias(&parser, "one");
-    pure_parser_enable_alias(&parser, "expiring");
+    const char *formula = "$[$name has ## You have] $[$number coupon(s) ## no coupons] expiring on $date";
+    pure_parser_assign_var(&parser, "number", "7");
     pure_parser_assign_var(&parser, "date", "11/11/19");
     pure_parser_execute(&parser, formula, true, true, &meta->output, NULL);
     
     example_meta_set_formula(meta, formula);
-    example_meta_enable_alias(meta, 0, "one");
-    example_meta_enable_alias(meta, 1, "expiring");
-    example_meta_set_variable(meta, 0, "date", "11/11/19");
-    example_meta_set_reference(meta, "You have one coupon expiring on 11/11/19");
+    example_meta_set_variable(meta, 0, "number", "7");
+    example_meta_set_variable(meta, 1, "date", "11/11/19");
+    example_meta_set_reference(meta, "You have 7 coupon(s) expiring on 11/11/19");
 }
 
 #pragma mark - Execute all examples

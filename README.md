@@ -49,10 +49,9 @@ pod 'PureParser'
 
 ```
 PureParser parser;
-const std::string formula = "You have $[:none: no coupons ## :one: one coupon ## $number coupons] $[:expiring: expiring on $date]";
+const std::string formula = "$[$name has ## You have] $[$number coupon(s) ## no coupons] expiring on $date";
 
-parser.enableAlias("one");
-parser.enableAlias("expiring");
+parser.assignVariable("number", "7");
 parser.assignVariable("date", "11/11/19");
 const std::string result = parser.execute(formula, true, true);
 
@@ -67,14 +66,13 @@ and run them by `make cpp_run`
 
 ```
 pure_config_t config;
-pure_parser_t parser;
-const char *formula = "You have $[:none: no coupons ## :one: one coupon ## $number coupons] $[:expiring: expiring on $date]";
-
 pure_config_set_default(&config);
+
+pure_parser_t parser;
 pure_parser_init(&parser, &config);
 
-pure_parser_enable_alias(&parser, "one");
-pure_parser_enable_alias(&parser, "expiring");
+const char *formula = "$[$name has ## You have] $[$number coupon(s) ## no coupons] expiring on $date";
+pure_parser_assign_var(&parser, "number", "7");
 pure_parser_assign_var(&parser, "date", "11/11/19");
 
 char *result_buff = NULL;
@@ -95,10 +93,9 @@ and run them by `make c_run`
 
 ```
 let parser = PureParser()
-let formula = "You have $[:none: no coupons ## :one: one coupon ## $number coupons] $[:expiring: expiring on $date]";
+let formula = "$[$name has ## You have] $[$number coupon(s) ## no coupons] expiring on $date"
 
-parser.activate(alias: "one", true)
-parser.activate(alias: "expiring", true)
+parser.assign(variable: "number", value: "7")
 parser.assign(variable: "date", value: "11/11/19")
 let result = parser.execute(formula, collapseSpaces: true, resetOnFinish: true)
 

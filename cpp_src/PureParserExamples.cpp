@@ -176,19 +176,18 @@ static example_meta_t test_ComplexInactiveAlias() {
 
 static example_meta_t test_Coupons() {
     PureParser parser;
-    const std::string formula = "You have $[:none: no coupons ## :one: one coupon ## $number coupons] $[:expiring: expiring on $date]";
+    const std::string formula = "$[$name has ## You have] $[$number coupon(s) ## no coupons] expiring on $date";
     
-    parser.enableAlias("one");
-    parser.enableAlias("expiring");
+    parser.assignVariable("number", "7");
     parser.assignVariable("date", "11/11/19");
 
     const std::string output = parser.execute(formula, true, true);
-    const std::string reference = "You have one coupon expiring on 11/11/19";
+    const std::string reference = "You have 7 coupon(s) expiring on 11/11/19";
 
     return example_meta_t {
         .formula = formula,
-        .variables = std::map<std::string, std::string>{ {"date", "11/11/19"} },
-        .aliases = std::set<std::string>{ "one", "expiring" },
+        .variables = std::map<std::string, std::string>{ {"number", "7"}, {"date", "11/11/19"} },
+        .aliases = std::set<std::string>(),
         .reference = reference,
         .output = output
     };
