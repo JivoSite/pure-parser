@@ -1,9 +1,9 @@
 ## What is PureParser
 
-[![Platform](https://img.shields.io/cocoapods/p/PureParser.svg?style=flat)](https://cocoapods.org/pods/PureParser)
-[![Build Status](https://travis-ci.com/JivoSite/pure-parser.svg?branch=master)](https://travis-ci.com/JivoSite/pure-parser)
-[![Version](https://img.shields.io/cocoapods/v/PureParser.svg?style=flat)](https://cocoapods.org/pods/PureParser)
-[![License](https://img.shields.io/cocoapods/l/PureParser.svg?style=flat)](https://cocoapods.org/pods/PureParser)
+[![Platform](https://img.shields.io/cocoapods/p/PureParser)](https://cocoapods.org/pods/PureParser)
+[![Build Status](https://travis-ci.com/JivoSite/pure-parser.svg)](https://travis-ci.com/JivoSite/pure-parser)
+[![Version](https://img.shields.io/cocoapods/v/PureParser)](https://cocoapods.org/pods/PureParser)
+[![License](https://img.shields.io/cocoapods/l/PureParser)](https://cocoapods.org/pods/PureParser)
 
 PureParser is a tool that was designed to simplify the process of adopting the localizable strings if many conditions could cause those strings to look in different ways.
 
