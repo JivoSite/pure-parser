@@ -57,7 +57,7 @@ const std::string result = parser.execute(formula, true, true);
 
 std::cout << result << std::endl;
 ```
-> You have one coupon expiring on 11/11/19
+> You have 7 coupon(s) expiring on 11/11/19
 
 You can find more examples at `./cpp_src/PureParserExamples.cpp`  
 and run them by `make cpp_run`
@@ -84,7 +84,7 @@ if (result_buff) {
     free(result_buff);
 }
 ```
-> You have one coupon expiring on 11/11/19
+> You have 7 coupon(s) expiring on 11/11/19
 
 You can find more examples at `./c_wrapper/pure_parser_examples.c`  
 and run them by `make c_run`
@@ -101,7 +101,7 @@ let result = parser.execute(formula, collapseSpaces: true, resetOnFinish: true)
 
 print(result)
 ```
-> You have one coupon expiring on 11/11/19
+> You have 7 coupon(s) expiring on 11/11/19
 
 You can find more examples at `./swift_wrapper/PureParserExamples.swift`  
 and run them by `make swift_run`

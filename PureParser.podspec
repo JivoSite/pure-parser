@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'PureParser'
-  s.version               = '1.0.1'
+  s.version               = '1.0.2'
   s.summary               = 'Localization tool enpowered by special markup language; written in C++ and has some wrappers.'
   s.description           = <<-DESC
 PureParser is a tool that was designed to simplify the process of adopting the localizable strings if many conditions could cause those strings to look in different ways.
